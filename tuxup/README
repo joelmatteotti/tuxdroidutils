@@ -1,0 +1,48 @@
+$Id: README 73 2007-02-19 23:40:55Z jaguarondi $
+
+TUXUP is a computer side uploader utility for the tuxdroid robot of Kysoh. It
+is used to upgrade the firmware of all MCU's included in tuxdroid and it's
+dongle.
+
+DEPENDENCIES
+
+In order to reprogram the USB CPU, tuxup uses 'DFU Programmer'.
+'DFU Programmer' is a linux based command-line programmer for Atmel (8051 &
+AVR) chips with a USB bootloader supporting ISP.
+Download it at http://dfu-programmer.sourceforge.net/
+and install it as explained in the README file.
+
+CONNECTION
+
+You need to setup tuxdroid in bootloading mode by following this sequence:
+  1. connect the dongle on the USB port;
+  2. startup tuxdroid while pushing on it's head button;
+  3. connect the white cable between tuxdroid and the dongle.
+
+UPLOAD
+
+To check all your hexfiles and get version numbers:
+   > ./tuxup --all --pretend path/to/hex/folder/
+To upload all new firmwares:
+   > ./tuxup --all path/to/hex/folder/
+To upload only the 2 main CPU's of Tux Droid:
+   > ./tuxup --main path/to/hex/folder/
+To upload a hex file:
+   > ./tuxup hex_file
+
+ERROR
+
+If the uploading fails for any reason, one of the programs of your tuxdroid
+will most probably be corrupted but the bootloader should stay unaffected. So
+all you have to do is try again until it passes. You have to reset tux in most
+cases after any failure. To reset and reconnect, do:
+  1. switch off tuxdroid;
+  2. disconnect the dongle;
+  3. startup tuxdroid while pushing on it's head button;
+  4. connect the dongle on the USB port;
+  5. retry the upload command.
+
+For all information about tuxdroid, please visit:
+
+  http://www.tuxisalive.com
+

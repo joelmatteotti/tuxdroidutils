@@ -1,0 +1,7 @@
+$Id: TODO 941 2008-03-18 07:15:08Z jaguarondi $
+
+- Add size report on the hex and eep files when programming.
+
+- Add man page
+
+- Add install and uninstall options in the make file or use autoconf

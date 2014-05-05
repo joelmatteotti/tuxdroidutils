@@ -1,0 +1,57 @@
+$Id: CHANGES 941 2008-03-18 07:15:08Z jaguarondi $
+
+Approximate change log for TUXUP by version.
+
+(For more detailed changes, see the ChangeLog file.)
+
+----------------------------------------------------------------------
+Current:
+
+0.4.0:
+
+* Now recognizes the version number of the USB hex file.
+
+* Send the right command for the dongle to exit correctly from bootloader.
+
+* Show progress when programming.
+
+* main() now returns an error when programming fails for any reason.
+
+* Cleanup.
+
+* Removed unused EXTERNAL_FLASH, we're not going to support that option
+  within tuxup.
+
+0.1.1:
+
+  * Added a check whether dfu-programmer is installed.
+  * Checking if the old firmware is used and tell to replug with the button pressed.
+  * Displayed messages have been improved and cleaned.
+
+0.1.0:
+
+  * BUG: fixed bug #1 Segfault when a hex file contained a line of data that
+    ended exactly at the end of a segment. The segmnt was never sent to the USB
+    in this case.
+  * Use CFLAGS in the Makefile, cleaned the code by removing unused variables
+    and avoid any warning.
+  * BUG: segfault when the given filename didn't have an extension.
+  * Uses interrupt usb requests and not bulk anymore, this is not compatible
+    with the old firmware so to update it, you have to press the belly button
+    when plugging.
+  * Connection now checks for 5 seconds before claiming that tux is not found.
+  * Added autodetection of the CPU to be programmed based on the CPU field in
+    hex files or names of eep files.
+  * Added version display when programming hex files.
+  * Changed the usage, replaced the old argument parsing with getopt.
+  * Added --version, --help, --pretend and --verbose options.
+  * Added --main option to reprogram tuxcore and tuxaudio only.
+  * Added support for usb programming which is a simple front-end to
+    dfu-programmer. dfu-programmer needs to be installed.
+  * Now uses defines from commands.h for CPU numbers, I2C addresses, etc.
+  * Code cleanup
+
+Version 0.0.1:
+
+  * Initial public release.
+
